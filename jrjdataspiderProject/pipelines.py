@@ -7,5 +7,14 @@
 
 
 class JrjdataspiderprojectPipeline(object):
+
+    def open_spider(self, spider):
+        print('open')
+
+    def close_spider(self, spider):
+        print('close')
+
     def process_item(self, item, spider):
+        print('+'*10)
+        # print(item)
         return item

@@ -5,8 +5,17 @@
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
+import pymongo
+from scrapy.conf import settings
+
 
 class JrjdataspiderprojectPipeline(object):
+
+    def __init__(self):
+
+        connection = pymongo.MongoClient(host=settings['MONGODB_SERVER'],port=settings['MONGODB_PORT'])
+        db = connection[settings['MONGODB_DB']]
+        self.connection = db[settings['MONGODB_COLLECTION']]
 
     def open_spider(self, spider):
         print('open')
@@ -15,6 +24,7 @@ class JrjdataspiderprojectPipeline(object):
         print('close')
 
     def process_item(self, item, spider):
-        print('+'*10)
-        # print(item)
+        if len(item['items']) > 0:
+            for i in item['items']:
+                self.connection.insert(dict(i))
         return item

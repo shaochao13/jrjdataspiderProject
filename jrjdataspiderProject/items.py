@@ -43,5 +43,10 @@ class CityItem(scrapy.Item):
     city_Id = scrapy.Field()
 
 
+class BankItem(scrapy.Item):
+    _id = scrapy.Field()
+    bankName = scrapy.Field()
+
+
 
 

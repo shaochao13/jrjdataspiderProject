@@ -67,6 +67,8 @@ COOKIES_ENABLED = False
 ITEM_PIPELINES = {
    'jrjdataspiderProject.pipelines.JrjdataspiderprojectPipeline': 300,
    'jrjdataspiderProject.CityDataSpiderPipeline.CityDataSpiderPipeline': 200,
+   'jrjdataspiderProject.BankinfoPipeline.BankinfoPipeline': 200,
+
 
 }
 
@@ -99,3 +101,4 @@ MONGODB_PORT = 27017
 MONGODB_DB = "jrjdatas"
 MONGODB_COLLECTION = "bankpro"
 CITYDATA_COLLECTION = "citydata"
+BANKDATA_COLLECTION = "bankdata"

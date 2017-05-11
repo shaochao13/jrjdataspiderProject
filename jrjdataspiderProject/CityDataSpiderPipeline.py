@@ -27,6 +27,7 @@ class CityDataSpiderPipeline(object):
 
     @check_spider_pipeline
     def process_item(self, item, spider):
+        print("CityDataSpiderPipeline")
         txt = '''[
 {"prov_Name":"安徽省","city_Name":"安庆市","prov_Id":"34","city_Id":"08"}
 ,{"prov_Name":"安徽省","city_Name":"马鞍山市","prov_Id":"34","city_Id":"05"}

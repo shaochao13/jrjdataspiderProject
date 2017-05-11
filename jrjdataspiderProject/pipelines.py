@@ -7,6 +7,7 @@
 
 import pymongo
 from scrapy.conf import settings
+from .checkpipeline import check_spider_pipeline
 
 
 class JrjdataspiderprojectPipeline(object):
@@ -23,6 +24,7 @@ class JrjdataspiderprojectPipeline(object):
     def close_spider(self, spider):
         print('close')
 
+    @check_spider_pipeline
     def process_item(self, item, spider):
         if len(item['items']) > 0:
             for i in item['items']:

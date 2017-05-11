@@ -66,6 +66,8 @@ COOKIES_ENABLED = False
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'jrjdataspiderProject.pipelines.JrjdataspiderprojectPipeline': 300,
+   'jrjdataspiderProject.CityDataSpiderPipeline.CityDataSpiderPipeline': 200,
+
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -89,8 +91,11 @@ ITEM_PIPELINES = {
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
+# FEED_EXPORT_ENCODING = 'utf-8'
+
 
 MONGODB_SERVER = "localhost"
 MONGODB_PORT = 27017
 MONGODB_DB = "jrjdatas"
 MONGODB_COLLECTION = "bankpro"
+CITYDATA_COLLECTION = "citydata"

@@ -6,6 +6,7 @@ import re
 import json
 
 class BankproSpider(scrapy.Spider):
+    pipeline = ['JrjdataspiderprojectPipeline']
     name = "bankpro"
     allowed_domains = ["jrj.com.cn"]
     start_urls = ['http://bankpro.jrj.com.cn/json/f.jspa?size=50&pn=1&t={"st":"0","xsdq":"-1,-1","sort":"sell_org_date","order":"desc","wd":""}']

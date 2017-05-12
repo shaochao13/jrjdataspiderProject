@@ -15,11 +15,11 @@ class BankinfospiderSpider(scrapy.Spider):
         # items = []
         for span in spans:
             item = BankItem()
-            item['_id'] = span.xpath("@data-value").extract()[0]
-            content_title = span.xpath("b/@title").extract()
-            if len(content_title) == 0 or len(content_title[0]) == 0:
-                content_title = span.xpath("b/text()").extract()
-            content_title = content_title[0] if len(content_title) > 0 else ""
+            item['_id'] = span.xpath("@data-value").extract_first()
+            content_title = span.xpath("b/@title").extract_first()
+            if len(content_title) == 0:
+                content_title = span.xpath("b/text()").extract_first()
+            content_title = content_title if len(content_title) > 0 else ""
             item['bankName'] = content_title
             yield item
 
